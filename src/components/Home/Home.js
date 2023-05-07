@@ -9,20 +9,19 @@ import DigiListening from '../DigiListening/DigiListening';
 const Home = () => {
   const dispatch = useDispatch();
   const [newList, setNewList] = useState([])
+
   const fetchListNames = async (newurl) => {
     const res = await DigimonApi.get(newurl)
     setNewList(res.data);
-    setTimeout(() => {
-      dispatch(addList(res.data))
-    }, 500)
+    dispatch(addList(res.data))
   }
   useEffect(() => {
     fetchListNames();
   }, [])
-  const paginationBack = async () => {
+  const paginationBack = () => {
     fetchListNames(newList.pageable.previousPage)
   }
-  const paginationNext = async () => {
+  const paginationNext = () => {
     fetchListNames(newList.pageable.nextPage)
   }
   return (

@@ -1,8 +1,7 @@
 import {createSlice,current} from '@reduxjs/toolkit'
 
 const initialState = {
-    lists:[],
-    details:{},
+     lists:[],
 }
 
 const listSlice = createSlice({
@@ -12,9 +11,7 @@ const listSlice = createSlice({
         addList:(state,action) =>{
             state.lists = action.payload
         },
-        adddetail:(state,action)=>{
-            state.details = action.payload
-        }
+      
     }
 })
 export const {addList,adddetail} = listSlice.actions

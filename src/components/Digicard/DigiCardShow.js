@@ -2,14 +2,13 @@ import { Button, Container, Grid, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import Box from '@mui/material/Box';
 import { Link } from 'react-router-dom';
-
+import DigimonApi from '../../api/DigimonApi'
 const DigiCardShow = ( lists ) => {
   
   const [ListDetail,setListDetail] = useState([])
   const fetchDetail = async () => {
-      const res = await fetch(`https://digimon-api.com/api/v1/digimon/${lists.id}`)
-      const data = await res.json()
-      setListDetail(data)
+    const res = await DigimonApi.get(`${lists.id}`)
+      setListDetail(res.data)
     };
   useEffect(() => {
     fetchDetail();

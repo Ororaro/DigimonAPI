@@ -1,9 +1,9 @@
-import { Box, Container, Grid, Typography } from '@mui/material'
+import { Box, Container, Grid, Typography, Button } from '@mui/material'
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import DigimonApi from '../../api/DigimonApi'
 import Skill from './Skill'
+
 const DigiDetail = () => {
   const [List, setList] = useState([])
   const [loading, setLoading] = useState(false);
@@ -19,7 +19,6 @@ const DigiDetail = () => {
   useEffect(() => {
     fetchDetail()
   }, [])
-  console.log(List)
   return (
     <Box sx={{ marginTop: '5rem' }}>
       {loading ? (
@@ -64,7 +63,6 @@ const DigiDetail = () => {
           <Typography variant='h1'>loading...</Typography>
         </Box>
       )}
-
     </Box>
   )
 }
